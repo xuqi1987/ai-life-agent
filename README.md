@@ -1,4 +1,4 @@
-# minimax-agent
+# ai-life-agent
 
 Multi-modal Agent powered by MiniMax M2.7
 
@@ -29,8 +29,8 @@ Response (Text / TTS)
 
 ```bash
 # Clone
-git clone https://github.com/xuqi1987/minimax-agent.git
-cd minimax-agent
+git clone https://github.com/xuqi1987/ai-life-agent.git
+cd ai-life-agent
 
 # Install
 uv sync
@@ -40,13 +40,13 @@ cp .env.example .env
 # Edit .env with your MiniMax API key
 
 # Run
-uv run minimax-agent
+uv run ai-life-agent
 ```
 
 ## Project Structure
 
 ```
-minimax_agent/
+ai_life_agent/
 ├── core/           # Core agent logic
 │   ├── agent.py    # Main agent loop
 │   ├── planner.py  # Task planning

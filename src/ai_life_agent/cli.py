@@ -5,10 +5,10 @@ import sys
 
 def main():
     """Run the agent from command line."""
-    print("minimax-agent v0.1.0 — MiniMax M2.7 Multi-modal Agent")
+    print("ai-life-agent v0.1.0 — MiniMax M2.7 Multi-modal Agent")
     print("Type 'quit' or 'exit' to stop.\n")
 
-    from minimax_agent.core.agent import Agent
+    from ai_life_agent.core.agent import Agent
 
     agent = Agent()
 

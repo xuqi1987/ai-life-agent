@@ -1,9 +1,9 @@
-"""Tests for minimax_agent core."""
+"""Tests for ai_life_agent core."""
 
 import pytest
-from minimax_agent.core.agent import Agent, Message
-from minimax_agent.core.executor import Executor
-from minimax_agent.memory import Memory
+from ai_life_agent.core.agent import Agent, Message
+from ai_life_agent.core.executor import Executor
+from ai_life_agent.memory import Memory
 
 
 def test_agent_add_message():

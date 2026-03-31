@@ -1,8 +1,8 @@
 """Integration tests."""
 
 import pytest
-from minimax_agent.core.agent import Agent
-from minimax_agent.memory import Memory
+from ai_life_agent.core.agent import Agent
+from ai_life_agent.memory import Memory
 
 
 def test_agent_with_memory():
