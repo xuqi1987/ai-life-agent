@@ -40,3 +40,7 @@ credentials*.json
 # Model caches
 models/
 cache/
+
+# Generated audio files
+output_*.mp3
+*.mp3
