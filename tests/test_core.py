@@ -1,0 +1,58 @@
+"""Tests for minimax_agent core."""
+
+import pytest
+from minimax_agent.core.agent import Agent, Message
+from minimax_agent.core.executor import Executor
+from minimax_agent.memory import Memory
+
+
+def test_agent_add_message():
+    """Test adding messages to agent."""
+    agent = Agent()
+    agent.add_message("user", "Hello")
+    assert len(agent.messages) == 1
+    assert agent.messages[0].role == "user"
+    assert agent.messages[0].content == "Hello"
+
+
+def test_agent_run():
+    """Test agent run loop."""
+    agent = Agent()
+    response = agent.run("Hello")
+    assert len(agent.messages) == 2  # user + assistant
+    assert "Hello" in response
+
+
+def test_memory_add_fact():
+    """Test memory fact storage."""
+    memory = Memory()
+    memory.add_fact("name", "Alice")
+    assert memory.get_facts() == {"name": "Alice"}
+
+
+def test_memory_conversation_history():
+    """Test conversation history."""
+    memory = Memory()
+    memory.add_turn("user", "Hello")
+    memory.add_turn("assistant", "Hi there")
+    history = memory.get_conversation_history()
+    assert len(history) == 2
+
+
+def test_executor_register_and_run():
+    """Test tool registration and execution."""
+    executor = Executor()
+
+    def dummy_tool(a: int, b: int) -> int:
+        return a + b
+
+    executor.register("add", dummy_tool)
+    result = executor.execute("add", {"a": 1, "b": 2})
+    assert result == 3
+
+
+def test_executor_unknown_tool():
+    """Test unknown tool returns error."""
+    executor = Executor()
+    result = executor.execute("unknown", {})
+    assert "error" in result
