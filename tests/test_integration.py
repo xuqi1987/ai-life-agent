@@ -1,6 +1,5 @@
 """Integration tests."""
 
-import pytest
 from ai_life_agent.core.agent import Agent
 from ai_life_agent.memory import Memory
 

@@ -1,7 +1,6 @@
 """Tests for ai_life_agent core."""
 
-import pytest
-from ai_life_agent.core.agent import Agent, Message
+from ai_life_agent.core.agent import Agent
 from ai_life_agent.core.executor import Executor
 from ai_life_agent.memory import Memory
 
@@ -16,11 +15,12 @@ def test_agent_add_message():
 
 
 def test_agent_run():
-    """Test agent run loop."""
+    """Test agent run loop — 验证 Agent 能处理输入并产生回复（含 LLM 调用）。"""
     agent = Agent()
     response = agent.run("Hello")
     assert len(agent.messages) == 2  # user + assistant
-    assert "Hello" in response
+    assert isinstance(response, str)
+    assert len(response) > 0  # 有实质性回复（LLM 模式或降级模式均有输出）
 
 
 def test_memory_add_fact():
